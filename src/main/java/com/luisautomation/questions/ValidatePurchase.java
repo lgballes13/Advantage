@@ -23,10 +23,10 @@ public class ValidatePurchase implements Question<Boolean> {
         Log.printInfo("Total price actual: " + doublePriceActual);
 
         if(actor.recall("totalPrice").equals((doublePriceActual))){
-            Log.printInfo("the price expected: " + actor.recall("totalPrice") + " "+ "is equal to a the price actual: " + totalPriceActual + " ");
+            Log.printInfo("the price actual: " + actor.recall("totalPrice") + " "+ "is equal to a the price expected: " + totalPriceActual + " ");
             return true;
         } else {
-            Log.printError("the price expected: " + actor.recall("totalPrice") + "is not equal to a the price actual: " + totalPriceActual);
+            Log.printError("the price actual: " + actor.recall("totalPrice") + "is not equal to a the price expected: " + totalPriceActual);
             return false;
         }
 

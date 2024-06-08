@@ -1,10 +1,9 @@
 package com.luisautomation.stepdefinitions;
 
 import com.luisautomation.questions.ValidateEliminated;
+import com.luisautomation.questions.ValidateMessage;
 import com.luisautomation.questions.ValidatePurchase;
-import com.luisautomation.tasks.AddProducts;
-import com.luisautomation.tasks.EliminatedProduct;
-import com.luisautomation.tasks.NavigateShopping;
+import com.luisautomation.tasks.*;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,6 +12,7 @@ import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.hamcrest.CoreMatchers;
 
 import java.util.List;
 import java.util.Map;
@@ -47,6 +47,12 @@ public class PurchaseProductsStepDefinitions {
     }
 
 
+    @When("^remove products from cart$")
+    public void removeProductsFromCart() {
+        OnStage.theActorInTheSpotlight().attemptsTo(RemoveProducts.ofList());
+    }
+
+
     //@eliminated_product
 
     @When("^the customer eliminated a product what he was dont want buy$")
@@ -59,6 +65,26 @@ public class PurchaseProductsStepDefinitions {
     public void validateTheNewPriceTotalPurchase() {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateEliminated.ofCart()));
     }
+
+    //@buy
+
+    @When("^Enter the credentials for login$")
+    public void enterTheCredentialsForLogin() {
+        OnStage.theActorInTheSpotlight().attemptsTo(Login.inAdvantage());
+    }
+
+
+    @When("^input the information for payment method$")
+    public void inputTheInformationForPaymentMethod() {
+        OnStage.theActorInTheSpotlight().attemptsTo(OrderPayment.advantage());
+    }
+
+    @Then("^visualize the message \"([^\"]*)\"$")
+    public void visualizeTheMessage(String message) {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat("validate message", ValidateMessage.thankYOu(), CoreMatchers.equalTo(message)));
+    }
+
+
 
 
 

@@ -11,6 +11,12 @@ public class ShoppingCartPage {
 
     public static final Target LBL_REMOVE_PRODUCT = Target.the("remove a product").locatedBy("(//a[text()='REMOVE'])[{0}]");
 
+    public static final Target LBL_REMOVE = Target.the("lbl remove a product").locatedBy("//a[text()='REMOVE']");
+
     public static final Target LBL_PRICE_TO_REMOVE = Target.the("price of product a eliminated").locatedBy("(//a[text()='REMOVE'])[{0}]//ancestor::td//p");
+
+    public static final Target BTN_CHECKOUT = Target.the("Boton checkout").locatedBy("//button[@id='checkOutButton']");
+
+
 
 }

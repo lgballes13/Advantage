@@ -38,10 +38,10 @@ public class EliminatedProduct implements Task {
 
         Log.printWarning("the price of product removed is: "+" " + doublePriceproductRemove);
 
-        double totalPriceExpected = totalPriceInitial - doublePriceproductRemove;
-        actor.remember("totalPriceExpected", totalPriceExpected);
+        double totalPriceActual = totalPriceInitial - doublePriceproductRemove;
+        actor.remember("totalPriceActual", totalPriceActual);
 
-        Log.printWarning("the new price of total purchase expected is: "+" " + totalPriceExpected);
+        Log.printWarning("the new price of total purchase actual is: "+" " + totalPriceActual);
 
         actor.attemptsTo(Click.on(ShoppingCartPage.LBL_REMOVE_PRODUCT.of(randomNumberString)));
 

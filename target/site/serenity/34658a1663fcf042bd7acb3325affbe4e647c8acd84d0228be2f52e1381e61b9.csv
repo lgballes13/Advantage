@@ -1,3 +1,3 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Automate the shopping process on the Advantage online store","Add different products to the cart and validate the total purchase","FAILURE","2024-06-06T19:50:25.2314104-05:00[America/Bogota]","0.0","14.97"
-"Automate the shopping process on the Advantage online store","Add different products and eliminated a product for validate the change in total purchase","SUCCESS","2024-06-06T23:06:33.4801519-05:00[America/Bogota]","0.0","20.22"
+"Automate the shopping process on the Advantage online store","Add different products to the cart and validate the total purchase","SUCCESS","2024-06-07T18:02:46.2171752-05:00[America/Bogota]","0.0","16.45"
+"Automate the shopping process on the Advantage online store","Add different products and eliminated a product for validate the change in total purchase","SUCCESS","2024-06-07T18:03:02.8851809-05:00[America/Bogota]","0.0","26.08"

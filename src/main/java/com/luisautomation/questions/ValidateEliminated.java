@@ -17,15 +17,15 @@ public class ValidateEliminated implements Question<Boolean> {
 
         String totalPriceNew = ShoppingCartPage.LBL_TOTAL_PURCHASE.resolveFor(actor).getText();
         totalPriceNew = totalPriceNew.replace("$", "").replace(",","").trim();
-        double doublePriceActualNew = Double.parseDouble(totalPriceNew);
+        double doublePriceExpectedNew = Double.parseDouble(totalPriceNew);
 
-        Log.printInfo("Total price actual in the page: " + doublePriceActualNew);
+        Log.printInfo("Total price expected in the page: " + doublePriceExpectedNew);
 
-        if(actor.recall("totalPriceExpected").equals((doublePriceActualNew))){
-            Log.printInfo("the price expected: " + actor.recall("totalPriceExpected") + " "+ "is equal to a the price actual: " + doublePriceActualNew + " ");
+        if(actor.recall("totalPriceActual").equals((doublePriceExpectedNew))){
+            Log.printInfo("the price actual: " + actor.recall("totalPriceActual") + " "+ "is equal to a the price expected: " + doublePriceExpectedNew + " ");
             return true;
         } else {
-            Log.printError("the price expected: " + actor.recall("totalPriceExpected") + "is not equal to a the price actual: " + doublePriceActualNew);
+            Log.printError("the price actual: " + actor.recall("totalPriceActual") + "is not equal to a the price expected: " + doublePriceExpectedNew);
             return false;
         }
     }

@@ -1,5 +1,6 @@
 package com.luisautomation.tasks;
 
+import com.luisautomation.interactions.Wait;
 import com.luisautomation.userinterfaces.HomePage;
 import com.luisautomation.utils.Log;
 import net.serenitybdd.screenplay.Actor;
@@ -38,6 +39,7 @@ public class AddProducts implements Task {
 
             actor.attemptsTo(Click.on(HomePage.BTN_CATEGORY.of(products.get(i).get("category"))));
 
+            Wait.seconds(2);
             String price = HomePage.LBL_PRODUCT_PRICE.of(products.get(i).get("product")).resolveFor(actor).getText();
             price = price.replace("$", "").replace(",","").trim();
             double doublePrice = Double.parseDouble(price);
@@ -46,10 +48,11 @@ public class AddProducts implements Task {
             actor.remember("totalPrice", totalPrice);
 
             actor.attemptsTo( Click.on(HomePage.BTN_PRODUCT.of(products.get(i).get("product"))),
+                    Wait.seconds(2),
                     Click.on(HomePage.BTN_ADD_TO_CART),
                     Click.on(HomePage.BTN_HOME));
         }
-        Log.printWarning("Total Price Expected: " + totalPrice);
+        Log.printWarning("Total Price actual: " + totalPrice);
 
     }
 
